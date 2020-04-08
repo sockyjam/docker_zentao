@@ -1,0 +1,22 @@
+version: '2'
+networks:
+  default:
+    external:
+      name: zentao-network
+
+services:
+
+  zentao:
+      container_name: lookauto.zentao 
+      image: idoop/zentao
+      volumes:
+        - ./zbox:/opt/zbox
+      environment:
+        - ADMINER_USER=root
+        - ADMINER_PASSWD=lookauto
+      ports:
+        - "8091:80"
+        - "3308:3306"
+
+
+
